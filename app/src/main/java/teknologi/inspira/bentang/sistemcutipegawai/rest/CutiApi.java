@@ -5,20 +5,21 @@ package teknologi.inspira.bentang.sistemcutipegawai.rest;
  */
 
 
+import java.util.List;
+
 import retrofit2.Call;
 import retrofit2.http.GET;
-import retrofit2.http.POST;
 import retrofit2.http.Path;
-import retrofit2.http.Query;
+import teknologi.inspira.bentang.sistemcutipegawai.model.ApiResponse;
 import teknologi.inspira.bentang.sistemcutipegawai.model.Cuti;
 import teknologi.inspira.bentang.sistemcutipegawai.model.User;
 
 public interface CutiApi {
-    //get List cuti berdasarkan nip
-    @POST("user/login")
-    Call<User> getLogin(@Query("nip") String nip, @Query("password") String password);
 
-    @GET("listcuti/{id}")
-    Call<Cuti> getListCuti(@Path("id") int id, @Query("token") String apiKey);
+    @GET("user/login/{nip}/{password}")
+    Call<User> getLogin(@Path("nip") String nip, @Path("password") String password);
+
+    @GET("status_cuti/{id}")
+    Call<ApiResponse<List<Cuti>>> getListCuti(@Path("id") String id);
 
 }
