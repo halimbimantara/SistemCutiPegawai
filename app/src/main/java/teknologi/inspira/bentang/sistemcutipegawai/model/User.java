@@ -9,20 +9,24 @@ import com.google.gson.annotations.SerializedName;
 
 public class User {
 
-    @SerializedName("error")
+    @SerializedName("status")
     @Expose
-    private boolean error;
+    private boolean status;
+
+    @SerializedName("message")
+    @Expose
+    private String message;
 
 
     @SerializedName("id")
     @Expose
-    private String id;
+    private int id;
 
     @SerializedName("nip")
     @Expose
     private String nip;
 
-    @SerializedName("username")
+    @SerializedName("namapeg")
     @Expose
     private String namapeg;
 
@@ -31,82 +35,36 @@ public class User {
     @Expose
     private String token;
 
+    public String getMessage() {
+        return message;
+    }
 
-    @SerializedName("status")
-    @Expose
-    private int status;
+    public void setMessage(String message) {
+        this.message = message;
+    }
 
-//    @SerializedName("file_foto")
-//    @Expose
-//    private String fileFoto;
+    public int getId() {
+        return id;
+    }
 
-    /**
-     *
-     * @return
-     * The nip
-     */
+    public void setId(int id) {
+        this.id = id;
+    }
+
     public String getNip() {
         return nip;
     }
 
-    /**
-     *
-     * @param nip
-     * The nip
-     */
     public void setNip(String nip) {
         this.nip = nip;
     }
 
-    /**
-     *
-     * @return
-     * The namapeg
-     */
     public String getNamapeg() {
         return namapeg;
     }
-    /**
-     *
-     * @param namapeg
-     * The namapeg
-     */
+
     public void setNamapeg(String namapeg) {
         this.namapeg = namapeg;
-    }
-
-    /**
-     *
-     * @return
-     * The fileFoto
-     *
-    public String getFileFoto() {
-        return fileFoto;
-    }
-*/
-    /**
-     *
-     * @param //fileFoto
-     * The file_foto
-     *
-    public void setFileFoto(String fileFoto) {
-        this.fileFoto = fileFoto;
-    }
-*/
-    public int getStatus() {
-        return status;
-    }
-
-    public void setStatus(int status) {
-        this.status = status;
-    }
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
     }
 
     public String getToken() {
@@ -117,11 +75,14 @@ public class User {
         this.token = token;
     }
 
-    public boolean isError() {
-        return error;
+    public boolean isStatus() {
+        return status;
     }
 
-    public void setError(boolean error) {
-        this.error = error;
+    public void setStatus(boolean status) {
+        this.status = status;
     }
+
+
+
 }

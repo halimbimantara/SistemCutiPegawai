@@ -4,32 +4,26 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_camera"
-            android:icon="@drawable/ic_menu_camera"
-            android:title="Import" />
+            android:icon="@drawable/list_cuti"
+            android:title="List Cuti" />
         <item
-            android:id="@+id/nav_gallery"
-            android:icon="@drawable/ic_menu_gallery"
-            android:title="Gallery" />
-        <item
-            android:id="@+id/nav_slideshow"
-            android:icon="@drawable/ic_menu_slideshow"
-            android:title="Slideshow" />
-        <item
-            android:id="@+id/nav_manage"
-            android:icon="@drawable/ic_menu_manage"
-            android:title="Tools" />
+            android:id="@+id/nav_createcuti"
+            android:icon="@drawable/create_cuti"
+            android:title="Pengajuan Cuti" />
+
     </group>
 
-    <item android:title="Communicate">
+    <item android:title="Lainya">
         <menu>
             <item
                 android:id="@+id/nav_share"
-                android:icon="@drawable/ic_menu_share"
-                android:title="Share" />
+                android:icon="@android:drawable/ic_dialog_info"
+                android:title="About"
+                />
             <item
                 android:id="@+id/nav_send"
-                android:icon="@drawable/ic_menu_send"
-                android:title="Send" />
+                android:icon="@android:drawable/ic_menu_close_clear_cancel"
+                android:title="Logout" />
         </menu>
     </item>
 

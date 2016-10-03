@@ -18,8 +18,12 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
 
+import butterknife.ButterKnife;
+import io.paperdb.Paper;
 import teknologi.inspira.bentang.sistemcutipegawai.R;
 import teknologi.inspira.bentang.sistemcutipegawai.fragment.AboutFragment;
+import teknologi.inspira.bentang.sistemcutipegawai.fragment.CreateCutiFragment;
+import teknologi.inspira.bentang.sistemcutipegawai.fragment.ListCutiFragment;
 import teknologi.inspira.bentang.sistemcutipegawai.fragment.StatusCutiFragment;
 
 public class MainActivity extends AppCompatActivity
@@ -28,24 +32,19 @@ public class MainActivity extends AppCompatActivity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Paper.init(getBaseContext());
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
+
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
             this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.setDrawerListener(toggle);
         toggle.syncState();
+        ButterKnife.bind(this);
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
@@ -57,10 +56,11 @@ public class MainActivity extends AppCompatActivity
         SharedPreferences pref = getApplicationContext().getSharedPreferences(LoginActivity.MyPREFERENCES, Context.MODE_PRIVATE);
         name.setText(pref.getString("NAME",""));
         nip.setText(pref.getString("NIP",""));
+        System.out.println(pref.getString("NAME",""));
 
-        Fragment fragment= new StatusCutiFragment();
+        Fragment fragment= new ListCutiFragment();
         FragmentManager fragmentManager = getSupportFragmentManager();
-        fragmentManager.beginTransaction().replace(R.id.content_main, fragment).commit();
+        fragmentManager.beginTransaction().replace(R.id.contentIndex, fragment).commit();
     }
 
     @Override
@@ -103,21 +103,17 @@ public class MainActivity extends AppCompatActivity
         Fragment fragment = null;
         if (id == R.id.nav_camera) {
             // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
-            fragment = new AboutFragment();
-
-        } else if (id == R.id.nav_slideshow) {
-
-        } else if (id == R.id.nav_manage) {
-
+            fragment = new ListCutiFragment();
+        } else if (id == R.id.nav_createcuti) {
+            fragment = new CreateCutiFragment();
         } else if (id == R.id.nav_share) {
-
+            fragment = new AboutFragment();
         } else if (id == R.id.nav_send) {
-
+                finish();
         }
 
         FragmentManager fragmentManager = getSupportFragmentManager();
-        fragmentManager.beginTransaction().replace(R.id.content_main, fragment).commit();
+        fragmentManager.beginTransaction().replace(R.id.contentIndex, fragment).commit();
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);

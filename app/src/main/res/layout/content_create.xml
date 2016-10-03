@@ -16,21 +16,15 @@
             android:orientation="vertical"
             android:layout_marginTop="20px">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Nama Lengkap"
-            android:textStyle="normal|bold" />
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Nama"/>
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="No Handphone"
                 android:textStyle="normal|bold" />
             <EditText
+
+                android:id="@+id/Et_notelp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="085...."/>
@@ -41,6 +35,7 @@
                 android:textAppearance="@style/TextAppearance.AppCompat.Body1"
                 android:textSize="14sp" />
             <EditText
+                android:id="@+id/Et_email"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textEmailAddress"
@@ -53,6 +48,8 @@
                 android:text="Jenis Cuti"
                 android:textStyle="normal|bold" />
             <Spinner
+
+                android:id="@+id/Sp_jenis"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
@@ -62,10 +59,78 @@
                 android:layout_height="wrap_content"
                 android:text="Tanggal Mulai"
                 android:textStyle="normal|bold" />
-            <CalendarView
+
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"></CalendarView>
+                android:layout_height="wrap_content">
+            <EditText
+                android:id="@+id/tanggal_mulai"
+                android:hint="12-02-2016"
+                android:layout_weight="1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            </LinearLayout>
+    <!-- -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Tanggal Selesai"
+                android:textStyle="normal|bold" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <EditText
+                    android:id="@+id/tanggal_selesai"
+                    android:hint="12-02-2016"
+                    android:layout_weight="1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+            <!--NIP ATASAN-->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="NIP Atasan"
+                android:textStyle="normal|bold" />
+            <EditText
+                android:id="@+id/Et_Nip"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+            <!-- -->
+            <!--JABATAN ATASAN-->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Jabatan Atasan"
+                android:textStyle="normal|bold" />
+            <EditText
+                android:id="@+id/Et_jabatan"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+            <!-- -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Keterangan"
+                android:textStyle="normal|bold" />
+            <EditText
+                android:id="@+id/Et_Keterangan"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <Button
+                android:id="@+id/btn_submit"
+                android:layout_gravity="center"
+                android:layout_marginTop="10px"
+                android:textColor="@color/colorWhite"
+                android:background="@color/colorAccent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="SUBMIT"/>
 
         </LinearLayout>
     </ScrollView>
+
 </RelativeLayout>
