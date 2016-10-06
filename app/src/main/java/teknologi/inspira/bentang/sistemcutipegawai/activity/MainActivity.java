@@ -38,7 +38,6 @@ public class MainActivity extends AppCompatActivity
         setSupportActionBar(toolbar);
 
 
-
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
             this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -58,7 +57,7 @@ public class MainActivity extends AppCompatActivity
         nip.setText(pref.getString("NIP",""));
         System.out.println(pref.getString("NAME",""));
 
-        Fragment fragment= new ListCutiFragment();
+        Fragment fragment= new CreateCutiFragment();
         FragmentManager fragmentManager = getSupportFragmentManager();
         fragmentManager.beginTransaction().replace(R.id.contentIndex, fragment).commit();
     }

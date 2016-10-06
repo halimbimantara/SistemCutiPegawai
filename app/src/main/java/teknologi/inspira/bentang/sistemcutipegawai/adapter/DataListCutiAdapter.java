@@ -1,7 +1,6 @@
 package teknologi.inspira.bentang.sistemcutipegawai.adapter;
 
 import android.content.Context;
-import android.graphics.Color;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,7 +10,6 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import java.util.List;
-
 import teknologi.inspira.bentang.sistemcutipegawai.R;
 import teknologi.inspira.bentang.sistemcutipegawai.model.Cuti;
 
@@ -26,7 +24,7 @@ public class DataListCutiAdapter extends RecyclerView.Adapter<DataListCutiAdapte
 
     public static class CutiViewHolder extends RecyclerView.ViewHolder {
         LinearLayout moviesLayout;
-        TextView movieTitle;
+        TextView movieTitle,kodeusulan;
         TextView waktuUsulan;
         TextView tmulai,takhir;
         TextView rating;
@@ -43,6 +41,7 @@ public class DataListCutiAdapter extends RecyclerView.Adapter<DataListCutiAdapte
             status   =(TextView) v.findViewById(R.id.status);
             bg_status = (RelativeLayout) v.findViewById(R.id.bg_status);
             label    =(ImageView)v.findViewById(R.id.rating_image);
+            kodeusulan =(TextView)v.findViewById(R.id.kodeusulan);
 
         }
     }
@@ -63,21 +62,21 @@ public class DataListCutiAdapter extends RecyclerView.Adapter<DataListCutiAdapte
         holder.movieTitle.setText(listCuti.get(position).getJcuti());
         holder.waktuUsulan.setText("Diusulkan :"+listCuti.get(position).getWaktuUsulan());
         holder.tmulai.setText(listCuti.get(position).getTmulai()+" - "+listCuti.get(position).getTakhir());
+        holder.kodeusulan.setText(listCuti.get(position).getKodeusulan());
 
         int statusCuti=listCuti.get(position).getStatus_cuti();
         if(statusCuti == 1) {
             holder.label.setImageResource(R.drawable.ic_wait);
             holder.status.setText("Pending");
         }else if(statusCuti == 2) {
-//            holder.bg_status.setBackgroundColor(Color.parseColor("#4CAF50"));
             holder.label.setImageResource(R.drawable.ic_done);
             holder.status.setText("Approval");
         }else if(statusCuti == 3){
-            holder.bg_status.setBackgroundColor(Color.parseColor("#4CAF50"));
+            holder.label.setImageResource(R.drawable.ic_cetak);
             holder.status.setText("Output");
         }else if(statusCuti == 4){
+            holder.label.setImageResource(R.drawable.ic_batal);
             holder.status.setText("Penolakan");
-            holder.bg_status.setBackgroundColor(Color.parseColor("#FF4081"));
         }
     }
 

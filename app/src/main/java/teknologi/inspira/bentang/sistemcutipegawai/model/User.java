@@ -30,10 +30,9 @@ public class User {
     @Expose
     private String namapeg;
 
-
-    @SerializedName("token")
+    @SerializedName("photo")
     @Expose
-    private String token;
+    private String photo;
 
     public String getMessage() {
         return message;
@@ -67,12 +66,12 @@ public class User {
         this.namapeg = namapeg;
     }
 
-    public String getToken() {
-        return token;
+    public String getPhoto() {
+        return photo;
     }
 
-    public void setToken(String token) {
-        this.token = token;
+    public void setPhoto(String photo) {
+        this.photo = photo;
     }
 
     public boolean isStatus() {

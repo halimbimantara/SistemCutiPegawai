@@ -12,6 +12,8 @@ import retrofit2.http.GET;
 import retrofit2.http.POST;
 import retrofit2.http.Path;
 import teknologi.inspira.bentang.sistemcutipegawai.model.ApiResponse;
+import teknologi.inspira.bentang.sistemcutipegawai.model.Atasan;
+import teknologi.inspira.bentang.sistemcutipegawai.model.Biodata;
 import teknologi.inspira.bentang.sistemcutipegawai.model.BuatCuti;
 import teknologi.inspira.bentang.sistemcutipegawai.model.Cuti;
 import teknologi.inspira.bentang.sistemcutipegawai.model.JenisCuti;
@@ -28,6 +30,12 @@ public interface CutiApi {
     @GET("jeniscuti/")
     Call<ApiResponse<List<JenisCuti>>> getJenisCuti();
 
+    @GET("biodata/{nip}")
+    Call<Biodata> getBiodata(@Path("nip") String nip);
+
+    @GET("nipatasan")
+    Call<ApiResponse<List<Atasan>>> getAtasan();
+
     /**
      * Exemplary login data sent as JSON
      */
@@ -37,6 +45,9 @@ public interface CutiApi {
                                       @Field("email") String email,@Field("id") String id,@Field("nip_atasan")String nip_atasan,
                                       @Field("jabatan") String jabatan,@Field("keterangan") String keterangan,
                                       @Field("tmulai")String tgl_mulai,@Field("takhir")String tgl_akhir,
-                                      @Field("jcuti")int jenis_cuti);
+                                      @Field("jcuti")int jenis_cuti,
+                                      @Field("jbatan")String jbatan,
+                                      @Field("pangkat")String pangkat,
+                                      @Field("unitkerja")String unitkerja);
 
 }

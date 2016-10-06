@@ -77,7 +77,7 @@ public class LoginActivity extends AppCompatActivity{
                             SharedPreferences.Editor editor = sharedpreferences.edit();
                             editor.putString("NIP", mEt_nip.getText().toString());
                             editor.putString("NAME", response.body().getNamapeg());
-                            editor.putString("TOKEN", response.body().getToken());
+                            editor.putString("PHOTO", response.body().getPhoto());
                             editor.commit();
 
                             Intent intent;
